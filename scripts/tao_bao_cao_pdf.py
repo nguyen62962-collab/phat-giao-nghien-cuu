@@ -329,35 +329,67 @@ def trang_bieu_do(pdf, bieu_do):
         pdf.set_text_color(0, 0, 0)
 
 
-def render_table(pdf, rows):
+def _ve_hang_dau_bang(pdf, header_cells, col_w):
+    pdf.set_font("DejaVu", "B", 8)
+    pdf.set_fill_color(184, 134, 11)
+    pdf.set_text_color(255, 255, 255)
+    x0, y0 = pdf.l_margin, pdf.get_y()
+    for j, c in enumerate(header_cells):
+        pdf.set_xy(x0 + j * col_w, y0)
+        pdf.cell(col_w, 7, c[:40], border=1, fill=True)
+    pdf.set_xy(x0, y0 + 7)
+    pdf.set_font("DejaVu", "", 7.5)
+    pdf.set_text_color(0, 0, 0)
+
+
+def render_table(pdf, rows, so_dong_toi_da=60):
+    """Vẽ bảng, tự ngắt trang THỦ CÔNG (không dựa vào auto_page_break của fpdf2 —
+    auto_page_break giữa lúc đang vẽ dở một dòng sẽ làm mỗi ô văng ra một trang
+    riêng, tạo hàng chục trang gần như trắng). Bảng quá dài bị cắt bớt kèm ghi
+    chú, để PDF luôn gọn và đọc được trên điện thoại."""
     if not rows:
         return
     n_col = len(rows[0])
     page_w = pdf.w - 2 * pdf.l_margin
     col_w = page_w / n_col
-    pdf.set_font("DejaVu", "B", 8)
-    pdf.set_fill_color(184, 134, 11)
-    pdf.set_text_color(255, 255, 255)
-    for c in rows[0]:
-        pdf.cell(col_w, 7, c[:40], border=1, fill=True)
-    pdf.ln()
-    pdf.set_font("DejaVu", "", 7.5)
-    pdf.set_text_color(0, 0, 0)
+    body_rows = rows[1:]
+    bi_cat_bot = len(body_rows) > so_dong_toi_da
+    if bi_cat_bot:
+        body_rows = body_rows[:so_dong_toi_da]
+
+    auto_cu = pdf.auto_page_break, pdf.b_margin
+    pdf.set_auto_page_break(auto=False)
+
+    _ve_hang_dau_bang(pdf, rows[0], col_w)
     fill = False
-    for row in rows[1:]:
+    for row in body_rows:
         pdf.set_fill_color(245, 240, 230) if fill else pdf.set_fill_color(255, 255, 255)
-        y_start = pdf.get_y()
-        x_start = pdf.get_x()
-        max_h = 6
         cell_texts = [_sach_markdown_inline(c)[:120] for c in row[:n_col]]
+        max_h = 6
         for txt in cell_texts:
             lines = pdf.multi_cell(col_w, 4.5, txt, border=0, dry_run=True, output="LINES")
             max_h = max(max_h, 4.5 * len(lines))
+
+        # Hết chỗ trên trang hiện tại -> sang trang mới, vẽ lại tiêu đề bảng
+        if pdf.get_y() + max_h > pdf.h - pdf.b_margin:
+            pdf.add_page()
+            _ve_hang_dau_bang(pdf, rows[0], col_w)
+
+        x_start, y_start = pdf.l_margin, pdf.get_y()
         for j, txt in enumerate(cell_texts):
             pdf.set_xy(x_start + j * col_w, y_start)
             pdf.multi_cell(col_w, 4.5, txt, border=1, fill=True)
         pdf.set_xy(x_start, y_start + max_h)
         fill = not fill
+
+    pdf.set_auto_page_break(auto=auto_cu[0], margin=auto_cu[1])
+
+    if bi_cat_bot:
+        pdf.ln(2)
+        pdf.set_font("DejaVu", "", 8)
+        pdf.set_text_color(120, 120, 120)
+        mc(pdf, 5, f"(đã cắt bớt — chỉ hiện {so_dong_toi_da}/{len(rows) - 1} dòng đầu để PDF gọn)")
+        pdf.set_text_color(0, 0, 0)
 
 
 def render_markdown_blocks(pdf, blocks):
