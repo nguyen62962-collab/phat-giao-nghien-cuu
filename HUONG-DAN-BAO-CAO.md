@@ -51,7 +51,43 @@ dành cho routine cloud. Cloud đọc file này rồi làm theo.
 - **Cao** (xem kỹ từng cái): đụng giáo lý/nội dung Phật pháp, tông giọng thương
   hiệu, bỏ một lằn ranh gốc.
 
+## Bước bắt buộc: xuất PDF trực quan (sau khi viết xong .md)
+Chủ kênh xem báo cáo trên điện thoại để RA QUYẾT ĐỊNH nhanh — không muốn đọc
+markdown/JSON thô. Sau khi file `.md` ở bước 4 đã hoàn chỉnh, chạy:
+```
+python scripts/tao_bao_cao_pdf.py \
+  --json nghien-cuu/du-lieu/<ngay>.json \
+  --markdown nghien-cuu/bao-cao/<ngay>.md \
+  --out nghien-cuu/bao-cao/<ngay>.pdf
+```
+Script tự vẽ biểu đồ (top kênh theo view, so sánh view/%like theo định dạng
+video, phân tán view-theo-thời lượng, top 15 video) và ghép với toàn bộ nội
+dung phân tích trong file `.md` thành MỘT file PDF nhiều trang, có trang bìa,
+bảng, biểu đồ màu. Không cần internet, không cần API key ở bước này — chỉ xử
+lý file JSON/Markdown đã có sẵn. Nếu script lỗi, đọc thông báo lỗi, sửa nếu là
+lỗi rõ ràng (thiếu thư viện: `pip install matplotlib fpdf2`); nếu không sửa
+được nhanh, vẫn giữ lại file `.md` làm bản dự phòng và báo rõ lỗi cho chủ kênh.
+
+## Lưu kết quả lại (BẮT BUỘC — nếu không làm, báo cáo sẽ mất khi sandbox đóng)
+`nghien-cuu/bao-cao/` KHÔNG bị `.gitignore` (chỉ `du-lieu/` và
+`thumbnail-doi-thu/` bị ignore vì là dữ liệu thô tái tạo được). Sau khi có cả
+`.md` và `.pdf`, commit và đẩy thẳng lên `main`:
+```
+git add nghien-cuu/bao-cao/
+git commit -m "Báo cáo nghiên cứu xu hướng <ngay>"
+git push origin HEAD:main
+```
+Nếu `git push` bị chặn (branch protection, quyền ghi hạn chế...), đừng thử lại
+nhiều lần — báo rõ cho chủ kênh biết đã commit local nhưng chưa push được, và
+nêu lý do lỗi cụ thể.
+
 ## Giao báo cáo
-Cloud không ghi được vào máy cá nhân, nên **IN TOÀN BỘ BÁO CÁO trong tin nhắn
-kết quả cuối phiên** để chủ kênh đọc trên điện thoại. Kết bằng tóm tắt <150 từ:
-3–5 phát hiện đáng chú ý nhất + các đề xuất ưu tiên cao.
+1. Sau khi push thành công, thông báo rõ **đường dẫn file PDF trong repo**
+   (dạng `nghien-cuu/bao-cao/<ngay>.pdf`) để chủ kênh mở bằng app GitHub hoặc
+   trình duyệt trên điện thoại.
+2. Cloud không gửi file đính kèm được qua tin nhắn, nên vẫn **IN TOÀN BỘ NỘI
+   DUNG file `.md`** (nguyên văn, không rút gọn/tóm tắt thay thế) ngay trong
+   tin nhắn kết quả cuối phiên — để chủ kênh có bản dự phòng đọc ngay cả khi
+   chưa mở được PDF. Đây là yêu cầu bắt buộc, không được thay bằng bản tóm tắt.
+3. Kết thúc bằng một tóm tắt <150 từ: 3–5 phát hiện đáng chú ý nhất + các đề
+   xuất ưu tiên cao — đặt SAU phần nguyên văn ở mục 2, không thay thế nó.

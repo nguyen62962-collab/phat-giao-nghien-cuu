@@ -1,4 +1,10 @@
-# Kết quả chạy (cloud in báo cáo ra tin nhắn phiên, không commit vào repo)
-nghien-cuu/
+# Dữ liệu thô + ảnh tải về: tái tạo được mỗi lần chạy, không cần lưu lịch sử
+nghien-cuu/du-lieu/
+nghien-cuu/thumbnail-doi-thu/
+
+# Báo cáo (.md + .pdf) THÌ GIỮ LẠI — đây là sản phẩm chính, cần đọc lại được
+# từ GitHub (điện thoại) và tồn tại qua các lần sandbox cloud bị huỷ.
+# (không ignore nghien-cuu/bao-cao/)
+
 __pycache__/
 *.pyc
