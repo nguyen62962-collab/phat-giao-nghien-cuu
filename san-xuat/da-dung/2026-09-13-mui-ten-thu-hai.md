@@ -1,7 +1,9 @@
 # Bị mắng oan mất ngủ 3 đêm, Đức Phật hỏi một câu khiến ông tỉnh ngộ
 
-**Trạng thái:** Đã duyệt — 2026-09-13
+**Trạng thái:** Đã dựng xong, CHỜ chủ kênh xác nhận upload — 2026-09-13
 **Ngày tạo:** 2026-09-13
+**File video:** video\mui-ten-thu-hai.mp4 (50s, 1080x1920)
+**Nhạc nền (ghi công bắt buộc khi đăng):** "Ethereal Relaxation" by Kevin MacLeod (incompetech.com) — CC BY 4.0 — http://creativecommons.org/licenses/by/4.0/
 
 ## Kịch bản
 
