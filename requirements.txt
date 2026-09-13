@@ -2,3 +2,4 @@ requests
 matplotlib
 fpdf2
 Pillow
+cffi
