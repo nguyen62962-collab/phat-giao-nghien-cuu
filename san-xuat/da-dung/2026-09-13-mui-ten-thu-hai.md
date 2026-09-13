@@ -1,6 +1,6 @@
 # Bị mắng oan mất ngủ 3 đêm, Đức Phật hỏi một câu khiến ông tỉnh ngộ
 
-**Trạng thái:** Đã dựng xong, CHỜ chủ kênh xác nhận upload — 2026-09-13
+**Trạng thái:** Đã upload YouTube (riêng tư) — 2026-09-13, chờ chủ kênh tự bấm Công khai
 **Ngày tạo:** 2026-09-13
 **File video:** video\mui-ten-thu-hai.mp4 (50s, 1080x1920)
 **Nhạc nền (ghi công bắt buộc khi đăng):** "Ethereal Relaxation" by Kevin MacLeod (incompetech.com) — CC BY 4.0 — http://creativecommons.org/licenses/by/4.0/
@@ -34,3 +34,4 @@ Chuyện đến, ta không chọn được. Nhưng bắn thêm mũi tên hay kh�
 ## Ghi chú cho người duyệt
 
 Dựa trên "Mũi tên thứ hai" (kinh Sallatha) — tích kinh điển có thật, nội dung phổ biến và chuẩn xác giáo lý (không bịa trích dẫn). Câu hỏi của Đức Phật được diễn đạt lại (paraphrase) theo đúng ý kinh, không khẳng định là nguyên văn. Chủ đề không thuộc nhóm cấm.
+**Link YouTube (riêng tư):** https://youtube.com/watch?v=nanCyGbo0G8
