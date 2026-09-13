@@ -1,0 +1,4 @@
+# Kết quả chạy (cloud in báo cáo ra tin nhắn phiên, không commit vào repo)
+nghien-cuu/
+__pycache__/
+*.pyc

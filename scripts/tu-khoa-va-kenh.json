@@ -1,0 +1,28 @@
+{
+  "_ghi_chu": "File cấu hình cho skill phatgiao-nghien-cuu. Sửa thoải mái: thêm/bớt từ khóa hoặc kênh hạt giống theo thời gian.",
+
+  "tu_khoa": [
+    "lời phật dạy",
+    "phật pháp nhiệm màu",
+    "nhân quả",
+    "vô thường",
+    "buông bỏ",
+    "chuyện thiền sư",
+    "đạo phật đời sống",
+    "phật dạy cách sống",
+    "khẩu nghiệp",
+    "tùy duyên",
+    "phật pháp ứng dụng",
+    "câu chuyện phật giáo"
+  ],
+
+  "_ghi_chu_kenh_hat_giong": "channelId (dạng UCxxxxxxxx...) của các kênh cùng ngách muốn theo dõi sát, vd Phật Pháp Linh Ứng. Lấy channelId bằng cách mở kênh trên YouTube > xem mã nguồn trang (Ctrl+U) tìm 'channelId', hoặc dùng script với --resolve-handle @tenkenh.",
+  "kenh_hat_giong": [],
+
+  "_ghi_chu_loai_tru": "channelId của CHÍNH kênh bạn (một khi đã có) để không lẫn video của mình vào dữ liệu đối thủ.",
+  "loai_tru_kenh": [],
+
+  "so_video_moi_tu_khoa": 15,
+  "so_ngay_gan_day": 90,
+  "so_thumbnail_tai_ve": 12
+}
