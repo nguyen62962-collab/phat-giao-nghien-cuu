@@ -1,8 +1,9 @@
 # Đức Phật thử lòng một người giữ lời hứa nhỏ, phần thưởng bất ngờ là gì
 
-**Trạng thái:** Đã dựng xong (video demo thử nghiệm) — 2026-09-13
+**Trạng thái:** Đã upload YouTube (riêng tư) — 2026-09-13, chờ chủ kênh tự bấm Công khai
 **Ngày tạo:** 2026-09-13
-**File video:** video\duc-phat-thu-long-giu-loi-hua-nho.mp4 (55s, 1080x1920, đã gửi chủ kênh xem — CHƯA upload)
+**File video:** video\duc-phat-thu-long-giu-loi-hua-nho.mp4 (55s, 1080x1920)
+**Link YouTube (riêng tư):** https://youtube.com/watch?v=3RJ-mcB5b7U
 
 ## Kịch bản
 
