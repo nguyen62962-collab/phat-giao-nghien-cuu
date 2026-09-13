@@ -19,8 +19,19 @@ Hệ quả cho cách viết:
   mới tìm hiểu đạo Phật nghe vẫn thấy gần gũi, không bị thuật ngữ dội lại.
 
 > Lưu ý cân bằng: kênh tham chiếu làm video 1,5–2 tiếng để "nghe cả buổi". Kênh
-> của bạn là long-form 8–20 phút, cô đọng hơn. **Học giọng, không bê độ dài.**
-> Cô đọng lại phần lặp/dàn trải, giữ lấy sự ấm áp và mạch trấn an.
+> của bạn từ 2026-09-13 chuyển sang **Shorts 20–50 giây** (xem quyết định chiến
+> lược ở đầu `SKILL.md` và báo cáo `nghien-cuu/bao-cao/2026-09-13.md`) — cô đọng
+> hơn rất nhiều. **Học giọng và cách xưng hô, không bê độ dài.** Nén bài học vào
+> một câu chuyện chớp nhoáng, giữ lấy sự ấm áp trong từng câu dù kịch bản rất
+> ngắn.
+
+> **Insight mới (báo cáo 2026-09-13):** bình luận trên các Short hiệu suất cao
+> của đối thủ có cả tiếng Việt, Sinhala (Sri Lanka), Thái, Trung — cho thấy định
+> dạng Short kể chuyện ngắn, ít lời thoại phức tạp, được YouTube phân phối tới
+> **khán giả Phật tử/tâm linh quốc tế**, không chỉ trong nước. Không cần đổi
+> ngôn ngữ kịch bản (vẫn viết tiếng Việt), nhưng nên chọn hình ảnh/tình huống
+> mang tính phổ quát (không dùng chi tiết đặc thù văn hoá Việt khó hiểu với
+> người ngoài) để không cản trở việc lan toả quốc tế này.
 
 ## Xưng hô (cách gọi người nghe)
 
@@ -102,5 +113,27 @@ Ví dụ đúng khuôn:
 1. `LỜI PHẬT DẠY: BUÔNG BỎ ĐÚNG LÚC – TÂM AN, ĐỜI NHẸ NHÀNG`
 2. `PHẬT DẠY: BỚT SUY NGHĨ, ĐỜI TỰ NHIÊN BỚT KHỔ – Nghe 1 Lần Để Tỉnh Thức`
 
+> **Xác nhận bởi dữ liệu thị trường (2026-09-13):** khuôn "Lời Phật Dạy:/Phật
+> Dạy: + hành động + lợi ích" xuất hiện ở 23% (11/48) video hiệu suất cao của
+> đối thủ cùng ngách — **giữ nguyên công thức này**, không cần đổi.
+
 > Việc tối ưu tiêu đề/thẻ sâu (SEO) sẽ do skill SEO riêng đảm nhận; ở đây chỉ cần
 > gợi ý tiêu đề đúng khuôn ngách, hấp dẫn mà không sai sự thật.
+
+## Chủ đề CẤM tự ý áp dụng — nhân vật/tin đồn thời sự có thật (2026-09-13)
+
+Báo cáo thị trường phát hiện đối thủ đang khai thác tốt 2 nhóm chủ đề gắn nhân
+vật/tin đồn thời sự có thật: **"Sư Minh Tuệ"** (nhà sư khổ hạnh đang nổi tiếng)
+và **"Phật sống 12 tuổi"** (tin đồn/nhân vật chưa kiểm chứng, dạng tiêu đề "tiết
+lộ sự thật/tiết lộ sốc"). Cả hai đạt view tốt ở đối thủ, nhưng:
+
+- **Không tự ý thêm vào ngân hàng chủ đề hay tự viết kịch bản về các chủ đề
+  này** — dù người dùng chỉ đưa một chủ đề chung chung mà có thể liên tưởng tới
+  nhóm này.
+- Đây là **rủi ro cao**: đụng người thật ngoài đời (danh dự, thông tin sai lệch)
+  và/hoặc tin đồn chưa kiểm chứng — trực tiếp vi phạm nguyên tắc "không bịa/
+  không gán sai" đã có trong `cau-truc-va-mau.md` và "chuẩn xác giáo lý" trong
+  `SKILL.md`.
+- **Nếu chủ kênh chủ động yêu cầu** làm nội dung về một nhân vật thời sự có
+  thật, hỏi lại rõ ràng để xác nhận, và tra cứu nguồn cẩn thận trước khi viết —
+  không mặc định áp dụng chỉ vì đối thủ đang làm tốt.
