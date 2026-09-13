@@ -1,6 +1,6 @@
 # Bị mắng oan mất ngủ 3 đêm, Đức Phật hỏi một câu khiến ông tỉnh ngộ
 
-**Trạng thái:** Chờ chủ kênh duyệt
+**Trạng thái:** Đã duyệt — 2026-09-13
 **Ngày tạo:** 2026-09-13
 
 ## Kịch bản
