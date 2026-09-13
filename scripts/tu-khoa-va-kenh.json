@@ -24,5 +24,9 @@
 
   "so_video_moi_tu_khoa": 15,
   "so_ngay_gan_day": 90,
-  "so_thumbnail_tai_ve": 12
+  "so_thumbnail_tai_ve": 12,
+
+  "_ghi_chu_binh_luan": "Lấy top bình luận của các video nhiều view nhất để suy ra tệp khán giả (ai đang xem, họ tâm đắc điều gì). YouTube KHÔNG cho lấy nhân khẩu học (tuổi/giới/vùng) của kênh đối thủ — chỉ chủ kênh xem được của chính mình — nên đây là cách suy đoán gián tiếp hợp lệ nhất.",
+  "so_binh_luan_moi_video": 20,
+  "so_video_lay_binh_luan": 15
 }

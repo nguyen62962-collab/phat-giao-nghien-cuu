@@ -49,17 +49,21 @@ def parse_duration_to_seconds(duration):
     return h * 3600 + mi * 60 + s
 
 
-def api_get(path, api_key, params, max_retries=3):
+def api_get(path, api_key, params, max_retries=3, soft=False):
+    """Gọi API. soft=True: gặp lỗi thì trả None (không dừng cả chương trình) —
+    dùng cho phần phụ như bình luận (video có thể tắt bình luận -> 403)."""
     params = dict(params)
     params["key"] = api_key
     for attempt in range(max_retries):
         resp = requests.get(f"{API_BASE}/{path}", params=params, timeout=30)
         if resp.status_code == 200:
             return resp.json()
-        if resp.status_code in (403, 429) and attempt < max_retries - 1:
+        if resp.status_code in (403, 429) and attempt < max_retries - 1 and not soft:
             print(f"  ⚠ Lỗi {resp.status_code} (có thể do quota), thử lại sau 2s...")
             time.sleep(2)
             continue
+        if soft:
+            return None
         try:
             detail = resp.json().get("error", {}).get("message", resp.text)
         except Exception:
@@ -122,6 +126,9 @@ def build_record(item):
     duration_s = parse_duration_to_seconds(content.get("duration", ""))
     thumbs = snippet.get("thumbnails", {})
     best_thumb = thumbs.get("maxres") or thumbs.get("high") or thumbs.get("medium") or thumbs.get("default") or {}
+    view = int(stats.get("viewCount", 0) or 0)
+    like = int(stats.get("likeCount", 0) or 0)
+    comment = int(stats.get("commentCount", 0) or 0)
     return {
         "video_id": item.get("id"),
         "title": snippet.get("title", ""),
@@ -130,14 +137,66 @@ def build_record(item):
         "published_at": snippet.get("publishedAt", ""),
         "description_excerpt": (snippet.get("description", "") or "")[:300],
         "tags": snippet.get("tags", []),
-        "view_count": int(stats.get("viewCount", 0) or 0),
-        "like_count": int(stats.get("likeCount", 0) or 0),
-        "comment_count": int(stats.get("commentCount", 0) or 0),
+        "view_count": view,
+        "like_count": like,
+        "comment_count": comment,
+        "engagement_like_pct": round(100 * like / view, 3) if view else 0,
+        "engagement_comment_pct": round(100 * comment / view, 3) if view else 0,
         "duration_seconds": duration_s,
         "duration_minutes": round(duration_s / 60, 1),
         "thumbnail_url": best_thumb.get("url", ""),
         "url": f"https://www.youtube.com/watch?v={item.get('id')}",
+        "top_comments": [],
     }
+
+
+def fetch_top_comments(api_key, video_id, n):
+    """Top bình luận (theo độ liên quan) của một video — proxy cho tệp khán giả
+    và điều khán giả tâm đắc. Video tắt bình luận sẽ trả rỗng (không lỗi)."""
+    data = api_get("commentThreads", api_key, {
+        "part": "snippet",
+        "videoId": video_id,
+        "order": "relevance",
+        "maxResults": min(n, 100),
+        "textFormat": "plainText",
+    }, soft=True)
+    if not data:
+        return []
+    out = []
+    for it in data.get("items", []):
+        top = it.get("snippet", {}).get("topLevelComment", {}).get("snippet", {})
+        out.append({
+            "text": (top.get("textDisplay", "") or "").replace("\n", " ")[:400],
+            "like_count": int(top.get("likeCount", 0) or 0),
+            "author": top.get("authorDisplayName", ""),
+        })
+    return out
+
+
+def fetch_channel_stats(api_key, channel_ids):
+    """Thông số kênh (subs, tổng video, tổng view, quốc gia, ngày lập) — để hiểu
+    quy mô kênh và gợi ý vùng khán giả (country nếu kênh có khai báo)."""
+    stats = {}
+    ids = [c for c in channel_ids if c]
+    for i in range(0, len(ids), 50):
+        chunk = ids[i:i + 50]
+        data = api_get("channels", api_key, {
+            "part": "snippet,statistics",
+            "id": ",".join(chunk),
+        }, soft=True)
+        if not data:
+            continue
+        for it in data.get("items", []):
+            st = it.get("statistics", {})
+            sn = it.get("snippet", {})
+            stats[it["id"]] = {
+                "subscriber_count": int(st.get("subscriberCount", 0) or 0),
+                "video_count": int(st.get("videoCount", 0) or 0),
+                "view_count_total": int(st.get("viewCount", 0) or 0),
+                "country": sn.get("country", ""),
+                "channel_created": sn.get("publishedAt", ""),
+            }
+    return stats
 
 
 def download_thumbnails(records, out_dir, count):
@@ -190,6 +249,8 @@ def main():
     per_keyword = int(config.get("so_video_moi_tu_khoa", 15))
     recent_days = int(config.get("so_ngay_gan_day", 90))
     thumb_count = int(config.get("so_thumbnail_tai_ve", 12))
+    comment_per_video = int(config.get("so_binh_luan_moi_video", 20))
+    videos_for_comments = int(config.get("so_video_lay_binh_luan", 15))
 
     published_after = (datetime.now(timezone.utc) - timedelta(days=recent_days)).strftime("%Y-%m-%dT%H:%M:%SZ")
 
@@ -225,6 +286,16 @@ def main():
         [{"channel_id": cid, **agg} for cid, agg in channel_agg.items()],
         key=lambda c: c["tong_view"], reverse=True,
     )
+
+    print("Đang lấy thông số kênh (subs, quốc gia)...")
+    ch_stats = fetch_channel_stats(api_key, [c["channel_id"] for c in channels_ranked])
+    for c in channels_ranked:
+        c.update(ch_stats.get(c["channel_id"], {}))
+
+    print(f"Đang lấy top {comment_per_video} bình luận cho {videos_for_comments} video nhiều view nhất "
+          f"(để suy ra tệp khán giả)...")
+    for r in records[:videos_for_comments]:
+        r["top_comments"] = fetch_top_comments(api_key, r["video_id"], comment_per_video)
 
     now = datetime.now()
     date_tag = now.strftime("%Y-%m-%d")
