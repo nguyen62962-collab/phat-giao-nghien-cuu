@@ -34,6 +34,13 @@ bảng trong SKILL.md). Chèn `[HÌNH: ...]` ở mỗi đoạn cho khâu dựng 
 **3–5 phương án tiêu đề** theo khuôn `Lời Phật Dạy: [hành động] – [kết quả]`
 (đã xác nhận đúng thị trường, xem `giong-va-phong-cach-nganh.md`).
 
+**⚠️ BẮT BUỘC — lỗi đã gặp thật (2026-09-13):** dùng đúng heading markdown
+`## HOOK`, `## TÌNH HUỐNG`, `## KẾT` (hai dấu `#`, không in đậm `**HOOK:**`).
+Script `phatgiao-tts` tự động cắt bỏ mọi dòng bắt đầu bằng `#` khi tạo giọng
+đọc — nếu dùng `**HOOK:**` (in đậm) thay vì `## HOOK` (heading), chữ "HOOK",
+"TÌNH HUỐNG", "KẾT" sẽ bị đọc thành lời thoại, hỏng giọng đọc. Đã xảy ra ở lần
+chạy đầu tiên, phải sửa tay.
+
 ### Bước 3 — Lưu file
 Lưu vào `san-xuat/cho-duyet/<ngay-hom-nay YYYY-MM-DD>-<slug-chu-de>.md` (slug:
 chữ thường, gạch nối, bỏ dấu). Nội dung file gồm:
