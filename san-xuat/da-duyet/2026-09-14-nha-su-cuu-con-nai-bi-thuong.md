@@ -1,7 +1,8 @@
 # Một nhà sư giúp một con vật bị thương, nhiều năm sau con vật quay lại cứu ơn
 
-**Trạng thái:** Chờ duyệt
+**Trạng thái:** Đã duyệt — 2026-09-14, chờ dựng hình/lên video
 **Ngày tạo:** 2026-09-14
+**Ngày duyệt:** 2026-09-14
 
 ## Kịch bản
 
