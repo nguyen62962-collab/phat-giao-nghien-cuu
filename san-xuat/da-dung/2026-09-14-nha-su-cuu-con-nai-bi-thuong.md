@@ -1,8 +1,9 @@
 # Một nhà sư giúp một con vật bị thương, nhiều năm sau con vật quay lại cứu ơn
 
-**Trạng thái:** Đã duyệt — 2026-09-14, chờ dựng hình/lên video
+**Trạng thái:** Đã dựng xong, CHỜ chủ kênh xác nhận upload — 2026-09-16
 **Ngày tạo:** 2026-09-14
 **Ngày duyệt:** 2026-09-14
+**File video:** video\nha-su-cuu-con-nai-bi-thuong.mp4
 
 ## Kịch bản
 
