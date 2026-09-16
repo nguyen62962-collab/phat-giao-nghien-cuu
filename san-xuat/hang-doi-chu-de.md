@@ -12,14 +12,13 @@ bên dưới.
 
 ## Chưa dùng (theo thứ tự ưu tiên)
 
-1. Người kể xấu sau lưng bạn — cái kết của khẩu nghiệp đến nhanh hơn ta tưởng
-2. Một hành động bố thí âm thầm không ai biết, nhưng nhân quả không bỏ sót
-3. Người giữ mãi một mối hận — bài học từ câu chuyện tha thứ của một vị thiền sư
-4. Đứa trẻ nhường phần ăn cuối cùng cho người lạ — phước báo đến từ đâu
-5. Người giàu keo kiệt và người nghèo rộng lượng — nhân quả xoay vòng
-6. Một câu nói vô tình gây tổn thương — cái giá của lời nói thiếu suy nghĩ
-7. Vị tăng nhặt được của rơi, trả lại dù đang rất cần tiền
-8. Người con bất hiếu và bài học từ chiếc bát của mẹ
+1. Một hành động bố thí âm thầm không ai biết, nhưng nhân quả không bỏ sót
+2. Người giữ mãi một mối hận — bài học từ câu chuyện tha thứ của một vị thiền sư
+3. Đứa trẻ nhường phần ăn cuối cùng cho người lạ — phước báo đến từ đâu
+4. Người giàu keo kiệt và người nghèo rộng lượng — nhân quả xoay vòng
+5. Một câu nói vô tình gây tổn thương — cái giá của lời nói thiếu suy nghĩ
+6. Vị tăng nhặt được của rơi, trả lại dù đang rất cần tiền
+7. Người con bất hiếu và bài học từ chiếc bát của mẹ
 
 ## Đã dùng
 
@@ -28,6 +27,7 @@ bên dưới.
 
 - [x] 2026-09-13 — Đức Phật thử lòng một người giữ lời hứa nhỏ, phần thưởng bất ngờ là gì → san-xuat/cho-duyet/2026-09-13-duc-phat-thu-long-giu-loi-hua-nho.md
 - [x] 2026-09-14 — Một nhà sư giúp một con vật bị thương, nhiều năm sau con vật quay lại cứu ơn → san-xuat/cho-duyet/2026-09-14-nha-su-cuu-con-nai-bi-thuong.md
+- [x] 2026-09-16 — Người kể xấu sau lưng bạn — cái kết của khẩu nghiệp đến nhanh hơn ta tưởng → san-xuat/cho-duyet/2026-09-16-ke-xau-sau-lung-khau-nghiep-den-nhanh.md
 
 ## Chủ đề CẤM — KHÔNG được tự ý chọn
 
