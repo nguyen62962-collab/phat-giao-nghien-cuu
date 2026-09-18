@@ -8,3 +8,12 @@ nghien-cuu/thumbnail-doi-thu/
 
 __pycache__/
 *.pyc
+
+# Thông tin đăng nhập YouTube Analytics API (OAuth) — TUYỆT ĐỐI không đẩy lên
+# GitHub, đây là quyền truy cập riêng tư vào dữ liệu kênh của bạn.
+secrets/
+client_secret*.json
+youtube_analytics_token.json
+
+# Dữ liệu Analytics kênh mình (riêng tư, tái tạo được bằng cách chạy lại script)
+nghien-cuu/du-lieu-kenh-minh/

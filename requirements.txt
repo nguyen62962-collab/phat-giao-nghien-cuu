@@ -3,3 +3,6 @@ matplotlib
 fpdf2
 Pillow
 cffi
+google-api-python-client
+google-auth-oauthlib
+google-auth
